@@ -1,1 +1,169 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #fff;
+}
 
+/* NAVBAR */
+.dashboard-nav {
+  background: #7f1d1d;
+  color: white;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 16px 40px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.logout-btn {
+  cursor: pointer;
+}
+
+/* PROFILE BANNER */
+.profile-banner {
+  background: linear-gradient(90deg, #c4002f, #5b8ddb);
+  color: white;
+  padding: 40px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  background: white;
+  color: #c4002f;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-left h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.profile-left p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+.blood-chip {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.profile-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.notify-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.view-select {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* STATS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.stat-card h4 {
+  margin: 0;
+  color: #666;
+  font-weight: 500;
+}
+
+.stat-card h2 {
+  margin: 10px 0;
+  color: #111;
+  font-size: 30px;
+}
+
+.green-text {
+  color: #2e9e4f;
+  font-weight: 500;
+}
+
+.muted-text {
+  color: #888;
+}
+
+/* BANNER */
+.banner {
+  background: linear-gradient(to right, #7f1d1d, #dc2626);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.banner h1 {
+  font-size: 36px;
+}
+
+.banner button {
+  margin-top: 20px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #7f1d1d;
+  font-weight: 600;
+  cursor: pointer;
+}
