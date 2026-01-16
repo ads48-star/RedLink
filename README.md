@@ -22,10 +22,10 @@ RedLink is a comprehensive blood donation platform that bridges the gap between 
 5. Emergency Alert System- Critical blood shortage alerts, Location-based donor matching, Priority routing for emergencies
 6. User Dashboard- Personal profile with blood type, Donation statistics and history, Achievement points and badges, Lives impacted counter
 # Team
-Adhvika Srinath-Backend & Data Management
-Avishi Das-Backend & API Development
-Saanvi Vijayvergia- Frontend Development & UI/UX
-Anushi Saxena- Frontend Development & Integration
+•	Adhvika Srinath-Backend & Data Management
+•	Avishi Das-Backend & API Development
+•	Saanvi Vijayvergia- Frontend Development & UI/UX
+•	Anushi Saxena- Frontend Development & Integration
 # Hackathon
 Built for Brainwave 2.0 2026
 # Future Scope
