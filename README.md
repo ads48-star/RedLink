@@ -2,7 +2,7 @@
 # RedLink
 RedLink: A centralized platform connecting citizens, hospitals, and blood banks to save lives through smarter blood donation.
 # Problem Statement
-Despite growing demand, the blood donation system is fragmented and slow. Hospitals struggle to find the right blood in emergencies, blood banks lack real-time inventory and predictive tools, and donors remain disconnected resulting in delays, shortages, and preventable loss of lives.
+Despite growing demand, the blood donation system is fragmented and slow. Hospitals struggle to find the right blood in emergencies, blood banks lack real-time inventory and predictive tools, and donors remain disconnected, resulting in delays, shortages, and preventable loss of lives.
 # Solution
 RedLink is a comprehensive blood donation platform that bridges the gap between blood donors, recipients, hospitals, and blood banks through:
 1.	Unified digital platform connecting donors, blood banks, and patients
