@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RedLink Dashboard</title>
   <link rel="stylesheet" href="dashboard.css" />
 </head>
@@ -19,99 +18,111 @@
     <li onclick="showTab('receive')">Receive Blood</li>
     <li onclick="showTab('alerts')">Emergency</li>
   </ul>
-
-  <!-- LOGIN MODAL -->
   <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span onclick="closeLogin()" class="close">&times;</span>
-      <h2>Login</h2>
-      <input type="email" placeholder="Email" aria-label="Email">
-      <input type="password" placeholder="Password" aria-label="Password">
-      <button>Login</button>
-    </div>
+  <div class="modal-content">
+    <span onclick="closeLogin()" class="close">&times;</span>
+    <h2>Login</h2>
+    <input type="email" placeholder="Email" aria-label="Email">
+    <input type="password" placeholder="Password" aria-label="Password">
+    <button>Login</button>
   </div>
+</div>
 
-  <!-- SIGNUP MODAL -->
-  <div id="signupModal" class="modal">
-    <div class="modal-content">
-      <span onclick="closeSignup()" class="close">&times;</span>
-      <h2>Sign Up</h2>
-      <input type="text" placeholder="Full Name" aria-label="name">
-      <input type="email" placeholder="Email" aria-label="email">
-      <input type="password" placeholder="Password" aria-label="password">
-      <button>Create Account</button>
-    </div>
+<!-- ================= SIGNUP MODAL ================= -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeSignup()" class="close">&times;</span>
+    <h2>Sign Up</h2>
+    <input type="text" placeholder="Full Name" aria-label="name">
+    <input type="email" placeholder="Email" aria-label="email">
+    <input type="password" placeholder="Password" aria-label="password">
+    <button>Create Account</button>
   </div>
+</div>
 
   <div class="auth-buttons">
-    <button class="login-btn" onclick="openLogin()">Login</button>
-    <button class="signup-btn" onclick="openSignup()">Sign Up</button>
-  </div>
+  <button class="login-btn" onclick="openLogin()">Login</button>
+  <button class="signup-btn" onclick="openSignup()">Sign Up</button>
+</div>
+
 </nav>
 
 <main class="dashboard">
-
-  <!-- HOME TAB -->
-  <section id="home" class="tab active">
+<section id="home" class="tab active">
     <section class="hero">
-      <h2>Saving Lives, One <span class="highlight-drop">Drop</span> at a Time</h2>
+  <h2>Saving Lives, One <span class="highlight-drop">Drop</span> at a Time</h2>
 
-      <!-- AUTO SLIDER -->
-      <div class="slider">
-        <div class="slides">
-          <div class="slide">
-            <h3>Real-Time Blood Availability</h3>
-            <h5>Check live blood stock levels across all blood groups instantly</h5>
-          </div>
-
-          <div class="slide">
-            <h3>Find Blood Banks Instantly</h3>
-            <h5>Locate the nearest hospitals and blood banks near you</h5>
-          </div>
-
-          <div class="slide">
-            <h3>Emergency Prioritization</h3>
-            <h5>Critical requests get instant donor matching</h5>
-          </div>
-
-          <div class="slide">
-            <h3>Schedule Your Donation</h3>
-            <h5>Book donation slots and save lives easily</h5>
-          </div>
-        </div>
+  <!-- AUTO SLIDER -->
+  <div class="slider">
+    <div class="slides">
+      <div class="slide">
+        <h3>Real-Time Blood Availability</h3>
+        <h5>Check live blood stock levels across all blood groups instantly</h5>
       </div>
-    </section>
 
-    <!-- FEATURES -->
-    <section class="why-redlink">
-      <h2 class="section-title">Why RedLink?</h2>
-
-      <div class="why-grid">
-        <div class="why-card">
-          <span class="why-icon">⚡</span>
-          <h3>Fast Emergency Response</h3>
-          <p>Instant donor matching for critical blood requests</p>
-        </div>
-
-        <div class="why-card">
-          <span class="why-icon">🏥</span>
-          <h3>Connected Hospitals</h3>
-          <p>Unified network of blood banks & hospitals</p>
-        </div>
-
-        <div class="why-card">
-          <span class="why-icon">🌍</span>
-          <h3>Saves Lives Efficiently</h3>
-          <p>Smarter allocation of life-saving resources</p>
-        </div>
-
-        <div class="why-card">
-          <span class="why-icon">👥</span>
-          <h3>Donor Community</h3>
-          <p>Verified donors ready to help anytime</p>
-        </div>
-
+      <div class="slide">
+        <h3>Find Blood Banks Instantly</h3>
+        <h5>Locate the nearest hospitals and blood banks near you</h5>
       </div>
-    </section>
-  </section>
 
+      <div class="slide">
+        <h3>AI-Powered Predictions</h3>
+        <h5>Predict blood shortages before emergencies arise</h5>
+      </div>
+
+      <div class="slide">
+        <h3>Emergency Prioritization</h3>
+        <h5>Critical requests get instant donor matching</h5>
+      </div>
+
+      <div class="slide">
+        <h3>Schedule Your Donation</h3>
+        <h5>Book donation slots and save lives easily</h5>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="why-redlink">
+  <h2 class="section-title">Why RedLink?</h2>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">⚡</span>
+      <h3>Fast Emergency Response</h3>
+      <p>Instant donor matching for critical blood requests</p>
+    </div>
+
+    <div class="why-card">
+      <span class="why-icon">🏥</span>
+      <h3>Connected Hospitals</h3>
+      <p>Unified network of blood banks & hospitals</p>
+    </div>
+
+    <div class="why-card">
+      <span class="why-icon">🧠</span>
+      <h3>AI-Powered Insights</h3>
+      <p>Predict shortages before emergencies occur</p>
+    </div>
+
+    <div class="why-card">
+      <span class="why-icon">🌍</span>
+      <h3>Saves Lives Efficiently</h3>
+      <p>Smarter allocation of life-saving resources</p>
+    </div>
+
+    <div class="why-card">
+      <span class="why-icon">👥</span>
+      <h3>Donor Community</h3>
+      <p>Verified donors ready to help anytime</p>
+    </div>
+
+    <div class="why-card">
+      <span class="why-icon">📲</span>
+      <h3>Real-Time Alerts</h3>
+      <p>Immediate notifications when blood is needed</p>
+    </div>
+  </div>
+</section>
