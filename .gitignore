@@ -2,9 +2,7 @@
 node_modules/
 
 # Environment variables
-git add .env
-git commit -m "Add real env file"
-git push
+.env
 
 # Logs
 npm-debug.log*
