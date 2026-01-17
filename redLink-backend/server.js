@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
@@ -33,7 +34,10 @@ mongoose.connect('mongodb://localhost:27017/redlink', {
 }).then(() => console.log('✅ MongoDB Connected'))
   .catch(err => console.error('❌ MongoDB Error:', err));
 
-const JWT_SECRET = 'your-secret-key-change-in-production';
+
+const JWT_SECRET = 'myredlinkblooddonation-project-2026-hackathon-brainwave';
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
 
 // ==================== SCHEMAS ====================
 
@@ -709,7 +713,120 @@ app.get('/api/predictions/shortages', async (req, res) => {
     res.status(500).json({ error: 'Error generating predictions', details: error.message });
   }
 });
+app.post('/api/chatbot/message', async (req, res) => {
+  try {
+    const { message, history } = req.body;
 
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    console.log('🤖 Chatbot request:', message);
+
+    // Initialize Gemini model (FREE!)
+    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+
+    // Build system context
+    const systemPrompt = `You are RedLink AI Assistant, a helpful chatbot for a blood donation platform called RedLink.
+
+RedLink helps users:
+- Find nearby blood banks in Delhi
+- Schedule blood donations
+- Check blood availability in real-time
+- Request blood in emergencies
+- Get AI-powered shortage predictions
+
+Blood donation eligibility criteria:
+- Age: 18-65 years
+- Weight: At least 50 kg
+- No fever/cold/infection in past month
+- No major heart, lung, liver, kidney, or blood disorders
+- At least 56 days since last donation
+- Not taking blood thinners or antibiotics
+- No surgeries in past 6 months
+- No tattoos in past 3 months
+
+Available blood banks in Delhi:
+1. AIIMS Delhi - Ansari Nagar, New Delhi - Phone: +91 11 2659 8500
+2. Red Cross Blood Bank - Connaught Place, Delhi - Phone: +91 11 2371 6441
+3. Safdarjung Hospital - Ring Road, Near AIIMS - Phone: +91 11 2673 0000
+4. Rotary Blood Bank - Rajendra Place, Delhi - Phone: +91 11 2574 2014
+5. Apollo Hospital - Mathura Road, Sarita Vihar - Phone: +91 11 2692 5858
+
+Blood type compatibility:
+- O- is universal donor (can give to all)
+- AB+ is universal recipient (can receive from all)
+- A+ can donate to A+, AB+
+- B+ can donate to B+, AB+
+- O+ can donate to O+, A+, B+, AB+
+
+Be helpful, friendly, and concise. Format important information with bullet points. If asked about specific medical advice, remind users to consult healthcare professionals.`;
+
+    // Build conversation history for Gemini
+    const chatHistory = [];
+    
+    // Add system prompt as first message
+    chatHistory.push({
+      role: 'user',
+      parts: [{ text: systemPrompt }]
+    });
+    
+    chatHistory.push({
+      role: 'model',
+      parts: [{ text: 'Understood. I am RedLink AI Assistant, ready to help users with blood donation queries.' }]
+    });
+
+    // Add conversation history
+    if (history && history.length > 0) {
+      history.forEach(msg => {
+        chatHistory.push({
+          role: msg.role,
+          parts: msg.parts
+        });
+      });
+    }
+
+    // Start chat with history
+    const chat = model.startChat({
+      history: chatHistory,
+      generationConfig: {
+        maxOutputTokens: 1000,
+        temperature: 0.7,
+      },
+    });
+
+    // Send message and get response
+    const result = await chat.sendMessage(message);
+    const response = await result.response;
+    const reply = response.text();
+
+    console.log('✅ Chatbot response generated');
+
+    res.json({
+      reply: reply,
+      success: true
+    });
+
+  } catch (error) {
+    console.error('❌ Chatbot API Error:', error);
+    
+    // Return fallback response if API fails
+    res.json({
+      reply: `I apologize, but I'm having trouble processing your request right now. 
+
+Here are some quick links that might help:
+• Check eligibility in the **"Donate Blood"** tab
+• Find blood banks in the **"Donate Blood"** or **"Receive Blood"** tabs
+• View emergency alerts in the **"Emergency"** tab
+
+For urgent assistance, please contact our support team or call:
+• AIIMS Delhi: +91 11 2659 8500
+• Red Cross: +91 11 2371 6441`,
+      success: false,
+      error: error.message
+    });
+  }
+});
 // ==================== UTILITY FUNCTIONS ====================
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
